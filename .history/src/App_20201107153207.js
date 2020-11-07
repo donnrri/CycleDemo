@@ -92,7 +92,7 @@ function App() {
   });
 
 
-    setBuddies( result.slice(0, 6))
+    setBuddies( result.slice(0, 4))
   }
 
 

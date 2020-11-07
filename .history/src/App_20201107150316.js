@@ -86,57 +86,39 @@ function App() {
         let km = Math.round(n * 10) / 10
         return {firstname, dist:km}
     } )
-
-    result.sort((a, b) => {
-      return a.dist - b.dist;
-  });
-
-
-    setBuddies( result.slice(0, 6))
+    setBuddies(result)
   }
 
+function renderBuddyList(){
 
+}
   return (
     <div className="app" >
-
-      { 
-        buddies.length === 0 &&
-        <div>
-
-        <form>
+    {
+      buddies ?     
+      <form>
         <label className="bloop-label" htmlFor="bloop-input">Join Us</label>
         <input type="text" name="bloop-input" className="user-input" onChange={handleOnChange}/>
        </form>
+       :
+       <button className='sub-label'> Sign Up</button>
+    }
 
-   
-        {
-          showSendMessage ?
-          <input type="submit" value='Find Buddies' onClick={onSubmit}  className="sub-label submit"/>
-          :
-          <div className="sub-label">Enter your postcode above</div>
-          
-      
-        }
-  
-        </div>
-
+      {
+        showSendMessage ?
+        <input type="submit" value="Click me" onClick={onSubmit}  className="sub-label submit"/>
+        :
+        <div className="sub-label">Enter your postcode above</div>
+        
+    
       }
-
       {
         buddies.length > 0 &&
         <div className="microsoft container">
-        <ul>
-        {
-          buddies.map(({firstname, dist}, index) => {
-            return(
-              <li className='sub-label buddy-item' key={index} >{`${firstname} is just ${dist}km from you`}</li>
-            )
-          })
-        }
+          <p className="marquee"> We and our partners store and/or access information on a device, such as cookies and process personal data, such as unique identifiers and standard information sent by a device for personalised ads and content, ad and content measurement, and audience insights, as well as to develop and improve products.
 
-        </ul>
-          <button className='sub-label signup-btn'> Sign Up Today</button>
-       </div>
+With your permission we and our partners may use precise geolocation data and identification through device scanning. You may click to consent to our and our partners’ processing as described above. Alternatively you may access more detailed information and change your preferences before consenting or to refuse consenting. Please note that some processing of your personal data may not require your consent, but you have a right to object to such processing. Your preferences will apply to this website only. You can change your preferences at any time by returning to this site or visit our privacy policy</p>
+        </div>
       }
 
     </div>

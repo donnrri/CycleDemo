@@ -35,8 +35,6 @@
 .submit {
   font-size: 18px;
   font-weight: 600;
-  border: none;
-  background-color: transparent;
 }
 
 .user-input {
@@ -144,68 +142,4 @@
   100% {
     opacity: 1;
   }
-}
-.container {
-  padding: 1em;
-  margin: 1em auto;
-  overflow: hidden;
-  background: transparent;
-  position: relative;
-  box-sizing: border-box;
-  text-align: justify;
-}
-
-.marquee {
-  top: 6em;
-  position: relative;
-  box-sizing: border-box;
-  animation: marquee 15s linear infinite;
-}
-
-.marquee:hover {
-  animation-play-state: paused;
-}
-
-/* Make it move! */
-@keyframes marquee {
-  0% {
-    top: 8em;
-  }
-  100% {
-    top: -100em;
-  }
-}
-
-/* Make it look pretty */
-.microsoft .marquee {
-  margin: 0;
-  padding: 0 1em;
-  line-height: 1.5em;
-  font: 14px Georgia, Tahoma, Helvetica, Sans-Serif;
-  line-height: 1.5;
-}
-
-ul {
-  width: 90%;
-}
-.buddy-item {
-  text-align: center;
-  height: 30px;
-  padding: 0.2em;
-  font-size: 22px;
-  font-weight: bold;
-  opacity: 0.9;
-  list-style: none;
-  text-decoration: none;
-}
-
-.signup-btn {
-  color: yellow;
-  font-weight: bolder;
-  width: 100%;
-  font-size: 24px;
-  opacity: 1;
-  background-color: transparent;
-  text-align: center;
-  border: none;
 }

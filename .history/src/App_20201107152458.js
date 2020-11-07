@@ -92,7 +92,7 @@ function App() {
   });
 
 
-    setBuddies( result.slice(0, 6))
+    setBuddies( result.slice(0, 4))
   }
 
 
@@ -101,14 +101,13 @@ function App() {
 
       { 
         buddies.length === 0 &&
-        <div>
 
         <form>
         <label className="bloop-label" htmlFor="bloop-input">Join Us</label>
         <input type="text" name="bloop-input" className="user-input" onChange={handleOnChange}/>
        </form>
 
-   
+        <div>
         {
           showSendMessage ?
           <input type="submit" value='Find Buddies' onClick={onSubmit}  className="sub-label submit"/>
@@ -117,14 +116,15 @@ function App() {
           
       
         }
-  
         </div>
+
 
       }
 
       {
         buddies.length > 0 &&
         <div className="microsoft container">
+        <div className='sub-label buddy-item'> Sign up to meet</div>
         <ul>
         {
           buddies.map(({firstname, dist}, index) => {
@@ -135,7 +135,7 @@ function App() {
         }
 
         </ul>
-          <button className='sub-label signup-btn'> Sign Up Today</button>
+          <button className='sub-label'> Sign Up Today</button>
        </div>
       }
 

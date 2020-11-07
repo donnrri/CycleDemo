@@ -86,57 +86,52 @@ function App() {
         let km = Math.round(n * 10) / 10
         return {firstname, dist:km}
     } )
-
-    result.sort((a, b) => {
-      return a.dist - b.dist;
-  });
-
-
-    setBuddies( result.slice(0, 6))
+    setBuddies(result)
   }
 
 
   return (
     <div className="app" >
-
-      { 
-        buddies.length === 0 &&
-        <div>
-
-        <form>
+    {
+      buddies ?     
+      <form>
         <label className="bloop-label" htmlFor="bloop-input">Join Us</label>
         <input type="text" name="bloop-input" className="user-input" onChange={handleOnChange}/>
        </form>
-
-   
-        {
-          showSendMessage ?
-          <input type="submit" value='Find Buddies' onClick={onSubmit}  className="sub-label submit"/>
-          :
-          <div className="sub-label">Enter your postcode above</div>
-          
-      
-        }
-  
-        </div>
-
-      }
+       :
+       <button className='sub-label'> Sign Up</button>
+    }
 
       {
+        showSendMessage ?
+        <input type="submit" value="Click me" onClick={onSubmit}  className="sub-label submit"/>
+        :
+        <div className="sub-label">Enter your postcode above</div>
+        
+    
+      }
+      {
         buddies.length > 0 &&
-        <div className="microsoft container">
-        <ul>
-        {
-          buddies.map(({firstname, dist}, index) => {
-            return(
-              <li className='sub-label buddy-item' key={index} >{`${firstname} is just ${dist}km from you`}</li>
-            )
-          })
-        }
-
-        </ul>
-          <button className='sub-label signup-btn'> Sign Up Today</button>
-       </div>
+        <div className="content">
+        <div>
+              Sign up to meet 
+        </div>
+          <div className="content__container">
+            
+            <ul className="content__container__list">
+              {
+                buddies.map(({firstname, dist}, index) => (
+                  <li 
+                  key={index} 
+                  className="content__container__list__item">
+                  {`${firstname} (${dist} km) `} !
+                  </li> 
+                  ))
+              }
+    
+            </ul>
+          </div>
+</div>
       }
 
     </div>

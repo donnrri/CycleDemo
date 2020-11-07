@@ -92,7 +92,7 @@ function App() {
   });
 
 
-    setBuddies( result.slice(0, 6))
+    setBuddies( result.slice(0, 4))
   }
 
 
@@ -125,6 +125,7 @@ function App() {
       {
         buddies.length > 0 &&
         <div className="microsoft container">
+        <div className='sub-label buddy-item'> Sign up to meet</div>
         <ul>
         {
           buddies.map(({firstname, dist}, index) => {
@@ -135,7 +136,7 @@ function App() {
         }
 
         </ul>
-          <button className='sub-label signup-btn'> Sign Up Today</button>
+          <button className='sub-label'> Sign Up Today</button>
        </div>
       }
 

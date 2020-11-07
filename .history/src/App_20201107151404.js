@@ -86,45 +86,34 @@ function App() {
         let km = Math.round(n * 10) / 10
         return {firstname, dist:km}
     } )
-
-    result.sort((a, b) => {
-      return a.dist - b.dist;
-  });
-
-
-    setBuddies( result.slice(0, 6))
+    setBuddies(result)
   }
 
 
   return (
     <div className="app" >
-
-      { 
-        buddies.length === 0 &&
-        <div>
-
-        <form>
+    {
+      buddies ?     
+      <form>
         <label className="bloop-label" htmlFor="bloop-input">Join Us</label>
         <input type="text" name="bloop-input" className="user-input" onChange={handleOnChange}/>
        </form>
+       :
+       <button className='sub-label'> Sign Up</button>
+    }
 
-   
-        {
-          showSendMessage ?
-          <input type="submit" value='Find Buddies' onClick={onSubmit}  className="sub-label submit"/>
-          :
-          <div className="sub-label">Enter your postcode above</div>
-          
-      
-        }
-  
-        </div>
-
+      {
+        showSendMessage ?
+        <input type="submit" value="Click me" onClick={onSubmit}  className="sub-label submit"/>
+        :
+        <div className="sub-label">Enter your postcode above</div>
+        
+    
       }
-
       {
         buddies.length > 0 &&
         <div className="microsoft container">
+        <div className='buddy-item'> Sign up to meet</div>
         <ul>
         {
           buddies.map(({firstname, dist}, index) => {
@@ -135,7 +124,7 @@ function App() {
         }
 
         </ul>
-          <button className='sub-label signup-btn'> Sign Up Today</button>
+   
        </div>
       }
 
